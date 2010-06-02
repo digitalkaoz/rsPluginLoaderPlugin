@@ -13,7 +13,7 @@ Installation
 
 Usage
 -----
-edit your ProjectConfiguration first:
+edit your ProjectConfiguration file first:
 
     require_once dirname(__FILE__).'/../plugins/rsPluginLoaderPlugin/lib/rsPluginLoader.class.php';
 

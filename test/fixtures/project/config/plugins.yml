@@ -6,3 +6,6 @@ all:
 dev:
   - sfTaskExtraPlugin
   - sfPHPUnit2Plugin
+
+cli:
+  - fooPlugin

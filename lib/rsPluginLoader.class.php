@@ -18,9 +18,9 @@ class rsPluginLoader
     $plugins = sfYaml::load($file);
     $env = sfConfig::get('sf_environment','cli');
 
-    $pluginsAll = isset($plugins['all']) ?$plugins['all'] : array();
-    $pluginsEnv = isset($plugins[$env]) ?$plugins[$env] : array();
+    $pluginsAll = isset($plugins['all']) ? $plugins['all'] : array();
+    $pluginsEnv = isset($plugins[$env]) ? $plugins[$env] : array();
 
-    $config->enablePlugins(array_merge($pluginsAll,$pluginsEnv));
+    return $config->enablePlugins(array_merge($pluginsAll,$pluginsEnv));
   }
 }
