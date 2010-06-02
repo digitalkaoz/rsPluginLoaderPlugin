@@ -1,0 +1,8 @@
+all:
+  - sfPropel15Plugin
+  - sfGuardPlugin
+  - sfFormExtraPlugin
+
+dev:
+  - sfTaskExtraPlugin
+  - sfPHPUnit2Plugin
