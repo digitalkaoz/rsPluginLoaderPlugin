@@ -30,9 +30,13 @@ create a *plugins.yml* file in your *config* folder:
       - fooPlugin
 
 define the plugins you want to load for every environment.
+
 section *all* will be loaded everytime
+
 section *dev* will be loaded only in sf_environment dev
+
 section *cli* is active on console
+
 
 the last step is to use the loader in your *ProjectConfiguration*:
 
