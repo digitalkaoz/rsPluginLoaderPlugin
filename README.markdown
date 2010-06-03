@@ -51,6 +51,10 @@ the last step is to use the loader in your *ProjectConfiguration*:
     rsPluginLoader::load($this);
 
 the rest is handled by the plugin loader!
+
+After adding new plugins, dont forget to clear the cache, because the plugins list will be cached.
+    symfony cc
+
 Done.
 
   [1]: http://github.com/digitalkaoz/rsPluginLoaderPlugin "official git repository"
