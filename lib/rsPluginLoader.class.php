@@ -28,7 +28,7 @@ class rsPluginLoader
     $cacheFile = sfConfig::get('sf_cache_dir').'/plugins.cache';
     $yamlFile = sfConfig::get('sf_config_dir').'/plugins.yml';
 
-    if(file_exists($cacheFile))
+    if(is_readable($cacheFile))
     {
       return unserialize(file_get_contents($cacheFile));
     }
