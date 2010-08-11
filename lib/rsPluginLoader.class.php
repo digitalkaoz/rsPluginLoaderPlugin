@@ -5,11 +5,13 @@ class rsPluginLoader
   /**
    * activates the nesserary plugins
    *
-   * @param mixed $config
+   * @param sfProjectConfiguration $config
    */
   public static function load($config)
   {
     $plugins = self::getConfiguration();
+
+    $config->getEventDispatcher()->connect('task.cache.clear', array('rsPluginLoader','rebuildCacheFile'));
 
     $env = sfConfig::get('sf_environment','cli');
 
@@ -21,7 +23,7 @@ class rsPluginLoader
 
   /**
    * reads the plugins configuration either from cache or creates a cache
-   * @return <type>
+   * @return array
    */
   protected static function getConfiguration()
   {
@@ -47,5 +49,15 @@ class rsPluginLoader
 
       return $plugins;
     }
+  }
+
+  /**
+   * rebuilds the cache file (if the cache was cleared by a task)
+   *
+   * @param sfEvent $event
+   */
+  public static function rebuildCacheFile(sfEvent $event)
+  {
+    self::getConfiguration();
   }
 }
