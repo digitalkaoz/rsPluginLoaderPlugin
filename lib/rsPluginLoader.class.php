@@ -7,7 +7,7 @@ class rsPluginLoader
    *
    * @param sfProjectConfiguration $config
    */
-  public static function load($config)
+  public static function load(sfProjectConfiguration $config)
   {
     $plugins = self::getConfiguration();
 
@@ -38,14 +38,12 @@ class rsPluginLoader
     {
       if(!file_exists($yamlFile))
       {
-        throw new Exception('no plugins.yml found in config dir!');
+        throw new FileNotFoundException('no plugins.yml found in config dir!');
       }
 
       $plugins = sfYaml::load($yamlFile);
 
-      $handle = fopen($cacheFile, 'w');
-      fwrite($handle, serialize($plugins));
-      fclose($handle);
+      file_put_contents($cacheFile, serialize($plugins));
 
       return $plugins;
     }
